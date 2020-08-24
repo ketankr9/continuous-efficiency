@@ -3,8 +3,8 @@ kind: ClusterRole
 metadata:
   name: ce
 rules:
-- apiGroups: [" "]
-  resources: ["pods", "nodes", "events", "namespaces"]
+- apiGroups: [""]
+  resources: ["pods", "nodes", "events", "namespaces","persistentvolumes","persistentvolumeclaims"]
   verbs: ["get", "list", "watch"]
 - apiGroups: ["apps", "extensions"]
   resources: ["statefulsets", "deployments", "daemonsets", "replicasets"]
@@ -15,6 +15,9 @@ rules:
 - apiGroups: ["metrics.k8s.io"]
   resources: ["pods", "nodes"]
   verbs: ["get", "list"]
+- apiGroups: ["storage.k8s.io"]
+  resources: ["storageclasses"]
+  verbs: ["get", "watch", "list"]
 
 ---
 
